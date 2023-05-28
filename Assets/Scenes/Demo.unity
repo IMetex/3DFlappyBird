@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 1594578900}
   - component: {fileID: 1594578899}
   - component: {fileID: 1594578898}
+  - component: {fileID: 1594578903}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -429,6 +430,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1594578903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594578897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ded885687a77e354bb0a75e12dd2920d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishSpeed: -9
 --- !u!1 &1970288556
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +454,7 @@ GameObject:
   - component: {fileID: 1970288559}
   - component: {fileID: 1970288558}
   - component: {fileID: 1970288557}
+  - component: {fileID: 1970288560}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -538,3 +553,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970288560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970288556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be215b868bebe454ab41e4fea8a8b5a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxSpeed: 3
