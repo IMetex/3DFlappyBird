@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ground
+  - Obstacle
+  - Column
   layers:
   - Default
   - TransparentFX
@@ -43,6 +46,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 618608533
+    locked: 0
+  - name: Obtacle
+    uniqueID: 3842157301
     locked: 0
   - name: Ground
     uniqueID: 1302181801

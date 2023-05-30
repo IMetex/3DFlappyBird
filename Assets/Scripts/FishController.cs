@@ -6,23 +6,28 @@ public class FishController : MonoBehaviour
 {
     Rigidbody2D rb2;
     public float fishSpeed;
-
     private int angle;
-    private int maxAngle = -20;
-    private int minAngle = 60;
+    private int maxAngle = 20;
+    private int minAngle = -60;
     void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
     }
-    void FixedUpdate()
+    void Update()
     {
-        rb2.velocity = new Vector2(rb2.velocity.x, fishSpeed);
+        FishSwim();
+        FishRotation();
+    }
 
+    void FishSwim()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             rb2.velocity = new Vector2(rb2.velocity.x, fishSpeed);
         }
-
+    }
+    void FishRotation()
+    {
         if (rb2.velocity.y > 0)
         {
             if (angle <= maxAngle)
