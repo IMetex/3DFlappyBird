@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2274119174863987969}
   - component: {fileID: 9050150724648862019}
-  - component: {fileID: 8518061615910373654}
+  - component: {fileID: 5874528857747105022}
   m_Layer: 0
   m_Name: ObstacleParent
   m_TagString: Obstacle
@@ -60,7 +60,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0011559, y: 3.6030054}
   m_EdgeRadius: 0
---- !u!114 &8518061615910373654
+--- !u!114 &5874528857747105022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -9,6 +9,7 @@ public class FishController : MonoBehaviour
     private int angle;
     private int maxAngle = 20;
     private int minAngle = -60;
+    public ScoreManager scoreManager;
     void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
@@ -16,6 +17,10 @@ public class FishController : MonoBehaviour
     void Update()
     {
         FishSwim();
+    }
+
+    void FixedUpdate()
+    {
         FishRotation();
     }
 
@@ -43,5 +48,13 @@ public class FishController : MonoBehaviour
             }
         }
         transform.rotation = Quaternion.Euler(0, 0, angle);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (gameObject.CompareTag("Obstacle"))
+        {
+            scoreManager.Score();
+        }
+
     }
 }

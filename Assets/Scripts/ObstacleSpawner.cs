@@ -4,39 +4,31 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject obstaclePrefab;
-    public float maxTime;
-    public float minY;
-    public float maxY;
+    public GameObject obstacle;
     float timer;
+    public float maxTime;
+    public float maxY;
+    public float minY;
     float randomY;
 
     void Start()
     {
-        InstantiateObtacle();
+        //InstantiateObstacle();
     }
-
     void Update()
     {
-        SpawnTimer();
-
-    }
-    
-    void InstantiateObtacle()
-    {
-        GameObject newObstacle = Instantiate(obstaclePrefab);
-        newObstacle.transform.position = new Vector2(transform.position.x, transform.position.y);
-    }
-
-    void SpawnTimer()
-    {
         timer += Time.deltaTime;
-        if (timer >= Time.deltaTime)
-        {
-            randomY = Random.Range(minY,maxY);
-            InstantiateObtacle();
-            timer = 0;
 
+        if (timer >= maxTime)
+        {
+            InstantiateObstacle();
+            timer = 0;
         }
+    }
+    public void InstantiateObstacle()
+    {
+        randomY = Random.Range(minY, maxY);
+        GameObject newObstacle = Instantiate(obstacle);
+        newObstacle.transform.position = new Vector2(transform.position.x, randomY);
     }
 }
