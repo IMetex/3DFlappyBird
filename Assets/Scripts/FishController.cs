@@ -6,6 +6,8 @@ public class FishController : MonoBehaviour
 {
     public ScoreManager scoreManager;
     public GameManager gameManager;
+    public ObstacleSpawner obstacleSpawner;
+    public AudioSource swim, hit, point;
     Rigidbody2D rb2;
     Animator anim;
     public float fishSpeed;
@@ -16,6 +18,7 @@ public class FishController : MonoBehaviour
     void Start()
     {
         rb2 = GetComponent<Rigidbody2D>();
+        rb2.gravityScale = 0;
         anim = GetComponent<Animator>();
     }
     void Update()
@@ -32,7 +35,20 @@ public class FishController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && GameManager.gameOver == false)
         {
-            rb2.velocity = new Vector2(rb2.velocity.x, fishSpeed);
+            swim.Play();
+            if (GameManager.gameStarted == false)
+            {
+                rb2.gravityScale = 2f;
+                rb2.velocity = Vector3.zero;
+                rb2.velocity = new Vector2(rb2.velocity.x, fishSpeed);
+                obstacleSpawner.InstantiateObstacle();
+                gameManager.GameStarted();
+            }
+            else
+            {
+                rb2.velocity = Vector3.zero;
+                rb2.velocity = new Vector2(rb2.velocity.x, fishSpeed);
+            }
         }
     }
     void FishRotation()
@@ -61,10 +77,13 @@ public class FishController : MonoBehaviour
         if (other.CompareTag("Obstacle"))
         {
             scoreManager.Score();
+            point.Play();
         }
-        else if (other.CompareTag("Column"))
+        else if (other.CompareTag("Column") && GameManager.gameOver == false)
         {
+            FishDeadEfect();
             gameManager.GameOver();
+
         }
     }
     private void OnCollisionEnter2D(Collision2D other)
@@ -74,6 +93,7 @@ public class FishController : MonoBehaviour
             if (GameManager.gameOver == false)
             {
                 gameManager.GameOver();
+                FishDeadEfect();
                 FishDead();
             }
             else
@@ -85,7 +105,11 @@ public class FishController : MonoBehaviour
     void FishDead()
     {
         touchGround = true;
-        transform.rotation = Quaternion.Euler(0,0,-90);
+        transform.rotation = Quaternion.Euler(0, 0, -90);
         anim.enabled = false;
+    }
+    void FishDeadEfect()
+    {
+        hit.Play();
     }
 }

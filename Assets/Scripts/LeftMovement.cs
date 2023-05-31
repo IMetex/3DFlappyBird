@@ -22,7 +22,7 @@ public class LeftMovement : MonoBehaviour
     }
     void Update()
     {
-        if (GameManager.gameOver == false)
+        if (GameManager.gameOver == false && GameManager.gameStarted == true)
         {
             transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
         }

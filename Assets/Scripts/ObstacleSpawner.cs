@@ -7,8 +7,8 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject obstacle;
     float timer;
     public float maxTime;
-    public float maxY;
-    public float minY;
+    private const float maxY = 2f;
+    private const float minY = -2.5f;
     float randomY;
 
     void Start()
@@ -17,7 +17,7 @@ public class ObstacleSpawner : MonoBehaviour
     }
     void Update()
     {
-        if (GameManager.gameOver == false)
+        if (GameManager.gameOver == false && GameManager.gameStarted == true)
         {
             timer += Time.deltaTime;
 
