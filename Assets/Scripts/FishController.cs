@@ -96,10 +96,6 @@ public class FishController : MonoBehaviour
                 FishDeadEfect();
                 FishDead();
             }
-            else
-            {
-                FishDead();
-            }
         }
     }
     void FishDead()
