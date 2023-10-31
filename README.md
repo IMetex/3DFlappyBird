@@ -1,8 +1,10 @@
-## Flappy Bird
+# Flappy Bird
 
 > Unity Version 2022.03.5f1
 
-- <b> Flaapy Bird Clone but 3D
+> <b> Flaapy Bird Clone but 3D
+> 
+> In this project "Object Pooling" and "Singleton Design Pattern" were used.
 
 ### Gameplay Video
 
